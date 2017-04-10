@@ -1,11 +1,15 @@
 # lambda_ruby
-A Docker image that you build and run to package your Ruby code so it can run on a node.js Lambda fiction on AWS.
+Get your Ruby running on Lambda
 
-Create a zip file that allows node.js to run Ruby in an AWS Lambda function
+On 2016/12/09 the AWS Compute Blog described a technique for running unsupported languages on AWS Lambda.
 
-Put the Ruby code you want to run in your_ruby.rb
+  https://aws.amazon.com/blogs/compute/scripting-languages-for-aws-lambda-running-php-ruby-and-go/
 
-Just build the supplied Docker image from the root directory of this repo.  
+I gave it a try for Ruby and it worked for me.  So I created a Docker image that automates most of the work.
+
+Put your Ruby into your_ruby.rb, build the image and then run a new container to get the zip file for Lambda.
+
+To build the supplied Docker image from the root directory of this repo.  
 $ docker build .
 
 Then run this command, replacing <DOCKER_IMAGE> with the id of the image you just built.
@@ -13,4 +17,6 @@ $ docker run -tiP -v ${PWD}:/result <DOCKER_IMAGE> cp /lambda_ruby/ruby.zip /res
 
 This should copy ruby.zip to this same directory.  
 
-You can now upload this 7 megayte file to an AWS Lambda function running node.js 4.3.
+You can now upload this 7 megayte file to a node.js AWS Lambda.  This Lambda function will need a handler called 'ruby.handler'.
+
+And you will need an execution role that can write to CloudWatch logs.  A role with the AWSLambdaBasicExecutionRole managed policy, for example.
