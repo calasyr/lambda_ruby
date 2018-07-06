@@ -17,6 +17,6 @@ $ docker run -tiP -v ${PWD}:/result <DOCKER_IMAGE> cp /lambda_ruby/ruby.zip /res
 
 This should copy ruby.zip to this same directory.  
 
-You can now upload this 7 megayte file to a node.js AWS Lambda.  This Lambda function will need a handler called 'ruby.handler'.
+You can now upload this 7 megabyte file to a node.js AWS Lambda.  This Lambda function will need a handler called 'ruby.handler'.
 
 And you will need an execution role that can write to CloudWatch logs.  A role with the AWSLambdaBasicExecutionRole managed policy, for example.
