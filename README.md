@@ -1,5 +1,10 @@
+# Finally!
+Ruby is now supported on Lambda, so there's no longer any need for this repo.  Yeah!
+
+https://aws.amazon.com/blogs/compute/announcing-ruby-support-for-aws-lambda/
+
 # lambda_ruby
-Get your Ruby running on Lambda
+Get your Ruby running on Lambda.
 
 On 2016/12/09 the AWS Compute Blog described a technique for running unsupported languages on AWS Lambda.
 
